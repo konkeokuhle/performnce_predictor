@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action="/predict">
+
+    <label>Attendance (%)</label><br>
+    <input type="number" name="attendance" required><br><br>
+
+    <label>Assignment Average (%)</label><br>
+    <input type="number" name="assignment" required><br><br>
+
+    <label>Test Average (%)</label><br>
+    <input type="number" name="test" required><br><br>
+
+    <label>Participation Score (%)</label><br>
+    <input type="number" name="participation" required><br><br>
+
+    <label>Late Submissions</label><br>
+    <input type="number" name="late" required><br><br>
+
+    <button type="submit">Predict Performance</button>
+</form>
+
+{% if prediction %}
+    <h2>Prediction Result: {{ prediction }}</h2>
+{% endif %}
+{% endblock %}
